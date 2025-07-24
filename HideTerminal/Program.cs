@@ -15,16 +15,17 @@ namespace HideTerminal
     class Program
     {
         public static SettingModel SettingModel { get; set; }
+        public const string SettingFileName = "HideTerminalSetting.json";
         static async Task Main(string[] args)
         {
-            if (File.Exists("setting.json"))
+            if (File.Exists(SettingFileName))
             {
-                SettingModel = JsonSerializer.Deserialize<SettingModel>(System.IO.File.ReadAllText("setting.json"));
+                SettingModel = JsonSerializer.Deserialize<SettingModel>(System.IO.File.ReadAllText(SettingFileName));
             }
             else
             {
                 SettingModel = new SettingModel();
-                using (FileStream fs = new FileStream("setting.json", FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream(SettingFileName, FileMode.OpenOrCreate))
                 {
                     JsonSerializer.Serialize(fs, SettingModel);
                     await fs.FlushAsync();
@@ -81,7 +82,7 @@ namespace HideTerminal
             {
                 Program.SettingModel.Arguments = args.Trim('\"').Trim('\'');
             }
-            using (FileStream fs = new FileStream("setting.json", FileMode.Open))
+            using (FileStream fs = new FileStream(Program.SettingFileName, FileMode.Open))
             {
                 JsonSerializer.Serialize(fs, Program.SettingModel);
             }
