@@ -8,7 +8,7 @@ cdコマンドでHideTerminal.exeファイルのあるdirectoryに移動しま�
 
 以下のコマンドで起動したいソフトウェアの設定を行います。
 ```
-HideTerminal -c "{実行ファイルを実行するdirectory}" -e "{実行ファイル}" -a "{実行時引数の指定}" 
+HideTerminal set -c "{実行ファイルを実行するdirectory}" -e "{実行ファイル}" -a "{実行時引数の指定}" 
 ```
 
 同じディレクトリに`HideTerminalSetting.json`ができており以下のように記述されていたら問題ないです。
