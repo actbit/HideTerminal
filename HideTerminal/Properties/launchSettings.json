@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "HideTerminal": {
+      "commandName": "Project"
+    },
+    "プロファイル 2": {
+      "commandName": "Project",
+      "commandLineArgs": "set -e java -c C:\\Users\\Binary_number\\Downloads\\minecraft_server1 -a \"-Xmx1024M -Xms1024M -jar server.jar\""
+    }
+  }
+}
